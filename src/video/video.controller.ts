@@ -9,10 +9,10 @@ export class VideoController {
 
   @Get()
   getVideoList(): Promise<Video[]> {
-    const result = this.videoService.getVideoList();
-    result.then((data) => {
-      console.log(data);
-    });
+    // const result = this.videoService.getVideoList();
+    // result.then((data) => {
+    //   console.log(data);
+    // });
 
     return this.videoService.getVideoList();
   }

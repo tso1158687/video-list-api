@@ -3,12 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { VideoModule } from './video/video.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://tso1158687:JGgEJFzkIw7fjrnH@cluster0.ycwlrtf.mongodb.net/',
-    ),
+    ConfigModule.forRoot({ isGlobal: true }),
+    MongooseModule.forRoot(process.env.MONGODB_URL),
     VideoModule,
   ],
 
@@ -16,3 +16,5 @@ import { VideoModule } from './video/video.module';
   providers: [AppService],
 })
 export class AppModule {}
+
+// mongodb://localhost:27017/
