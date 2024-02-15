@@ -1,5 +1,5 @@
 # 使用 Node 官方映像作為基礎
-FROM node:20
+FROM node:18-alpine
 
 # 設定工作目錄
 WORKDIR /usr/src/app
