@@ -13,6 +13,10 @@ export class VideoService {
     return this.videoModel.find().exec();
   }
 
+  async getVideoTotalCount(): Promise<number> {
+    return this.videoModel.countDocuments().exec();
+  }
+
   async findByFilename(query: string): Promise<Video[]> {
     return this.videoModel
       .find({ file_name: { $regex: query, $options: 'i' } })

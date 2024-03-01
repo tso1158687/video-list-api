@@ -9,7 +9,7 @@ export class DuplicatedVideo {
   file_name: string;
 
   @Prop({ required: true })
-  file_path: string[];
+  file_paths: string[];
 }
 
 export const DuplicatedVideoSchema =

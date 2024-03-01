@@ -7,6 +7,16 @@ import { Video } from 'src/schema/video.schema';
 export class VideoController {
   constructor(private videoService: VideoService) {}
 
+  @Get('count')
+  getVideoTotalCount(): Promise<number> {
+    return this.videoService.getVideoTotalCount();
+  }
+
+  @Get(':filename')
+  findByFilename(@Param() params): Promise<Video[]> {
+    return this.videoService.findByFilename(params.filename);
+  }
+
   @Get()
   getVideoList(): Promise<Video[]> {
     // const result = this.videoService.getVideoList();
@@ -15,11 +25,6 @@ export class VideoController {
     // });
 
     return this.videoService.getVideoList();
-  }
-
-  @Get(':filename')
-  findByFilename(@Param() params): Promise<Video[]> {
-    return this.videoService.findByFilename(params.filename);
   }
 
   @Post()
